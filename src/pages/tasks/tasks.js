@@ -6,9 +6,11 @@ async function postData(url = '', data = {}) {
   // Opciones por defecto estan marcadas con un *
   const response = await fetch(url, {
     method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    referrerPolicy: "strict-origin-when-cross-origin",
     mode: 'cors', // no-cors, *cors, same-origin
     // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     // credentials: 'same-origin', // include, *same-origin, omit
+    window:window,
     headers: {
       'Accept' : 'application/json',
       'Content-Type': 'application/json'
@@ -55,6 +57,7 @@ export default function Task() {
 }
 
   const fetchChraracter = (url, body) => {
+    // console.log(`${url} : ${body}`)
     postData(url, body)
       .then(data => {setCharacters(data.Payload); // JSON data parsed by `data.json()` call
       })
@@ -65,6 +68,8 @@ export default function Task() {
   }
    useEffect(() => {
     fetchChraracter(initiaurl, inibody)
+
+
    }, []);
 
   return (
