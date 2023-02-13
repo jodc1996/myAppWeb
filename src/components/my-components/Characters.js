@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    Chart, Series, CommonSeriesSettings, Label, Format, Legend, Export,
+    Chart, Series, CommonSeriesSettings, Label, Format, Legend,
   } from 'devextreme-react/chart';
 
 import { SingleCard } from "../../layouts";
@@ -58,4 +58,4 @@ const Characters = ({characters = []}) => {
     )
 }
 
-export default Characters
+export default Characters;
