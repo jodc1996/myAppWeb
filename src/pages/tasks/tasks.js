@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import 'devextreme/data/odata/store';
 import Characters from "../../components/my-components/Characters";
-import axios from 'axios';
 
 async function postData(url = '', data = {}) {
   // Opciones por defecto estan marcadas con un *
@@ -45,7 +44,8 @@ export default function Task() {
 
   const [characters, setCharacters] = useState([])
 
-  const initiaurl = 'http://intranet.taionline.net:14036/api/loadtfunction'
+  const initiaurl = `https://63ea67dbceb46e005c73d32b--neon-pie-587ff5.netlify.app/#/tasks/api/${type}`
+  // const initiaurl = `http://intranet.taionline.net:14036/api/loadtfunction`
   const inibody = {
     "FuncName": "Tai.Backend.Qplant",
     "ActiveActor": "WKU11",
@@ -57,26 +57,19 @@ export default function Task() {
     "FuncParam01": "OEEMONITOR2",
 }
 
-  const fetchChraracter = (type) => {
+  const fetchChraracter = (url, body) => {
     // console.log(`${url} : ${body}`)
-    axios.post(`https://63ea67dbceb46e005c73d32b--neon-pie-587ff5.netlify.app/#/tasks/api/${type}`, inibody)
-    .then( data => setCharacters(data.data.Payload))
-    .catch(function(error){
-      console.log(error)
-    })
-
-    // data.then(f => console.log(f.Payload))
-
-    // postData(url, body)
-    //   .then(data => {setCharacters(data.Payload); // JSON data parsed by `data.json()` call
-    //   })
-    //   .catch(rejected => {
-    //     console.log(rejected);
-    // });
+    postData(url, body)
+      .then(data => {setCharacters(data.Payload); // JSON data parsed by `data.json()` call
+      })
+      .catch(rejected => {
+        console.log(rejected);
+    });
 
   }
    useEffect(() => {
-    fetchChraracter()
+    console.log(fetchChraracter(initiaurl, inibody))
+    fetchChraracter(initiaurl, inibody)
 
 
    }, []);
