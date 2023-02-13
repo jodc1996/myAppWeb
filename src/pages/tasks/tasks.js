@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import 'devextreme/data/odata/store';
-import Characters from "/home/joseph/myappweb/src/components/my-components/Characters";
+import Characters from "../../components/my-components/Characters";
 
 async function postData(url = '', data = {}) {
   // Opciones por defecto estan marcadas con un *
