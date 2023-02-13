@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import 'devextreme/data/odata/store';
 import Characters from "../../components/my-components/Characters";
+import axios from 'axios';
 
 async function postData(url = '', data = {}) {
   // Opciones por defecto estan marcadas con un *
@@ -56,14 +57,19 @@ export default function Task() {
     "FuncParam01": "OEEMONITOR2",
 }
 
-  const fetchChraracter = (url, body) => {
+  const fetchChraracter = () => {
     // console.log(`${url} : ${body}`)
-    postData(url, body)
-      .then(data => {setCharacters(data.Payload); // JSON data parsed by `data.json()` call
-      })
-      .catch(rejected => {
-        console.log(rejected);
-    });
+    axios.post(initiaurl, inibody)
+    .then( data => setCharacters(data.data.Payload))
+
+    // data.then(f => console.log(f.Payload))
+
+    // postData(url, body)
+    //   .then(data => {setCharacters(data.Payload); // JSON data parsed by `data.json()` call
+    //   })
+    //   .catch(rejected => {
+    //     console.log(rejected);
+    // });
 
   }
    useEffect(() => {
