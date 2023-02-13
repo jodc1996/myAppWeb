@@ -66,8 +66,8 @@ export default function Task() {
     <React.Fragment>
       <h2 className={'content-block'}>Monitor de Produccion</h2>
 
-      {/* <div className='row' style={{marginLeft:"2%"}}> */}
+      <div className='row'>
         <Characters characters={characters}/>
-      {/* </div> */}
+      </div>
     </React.Fragment>
 )}
