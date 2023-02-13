@@ -76,7 +76,7 @@ export default function Task() {
 
   }
    useEffect(() => {
-    fetchChraracter(initiaurl, inibody)
+    fetchChraracter()
 
 
    }, []);
