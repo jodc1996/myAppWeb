@@ -59,7 +59,7 @@ export default function Task() {
 
   const fetchChraracter = (type) => {
     // console.log(`${url} : ${body}`)
-    axios.post(`https://63ea67dbceb46e005c73d32b--neon-pie-587ff5.netlify.app/api/${type}`, inibody)
+    axios.post(`https://63ea67dbceb46e005c73d32b--neon-pie-587ff5.netlify.app/#/tasks/api/${type}`, inibody)
     .then( data => setCharacters(data.data.Payload))
     .catch(function(error){
       console.log(error)
