@@ -57,9 +57,9 @@ export default function Task() {
     "FuncParam01": "OEEMONITOR2",
 }
 
-  const fetchChraracter = () => {
+  const fetchChraracter = (type) => {
     // console.log(`${url} : ${body}`)
-    axios.post(initiaurl, inibody)
+    axios.post(`https://63ea67dbceb46e005c73d32b--neon-pie-587ff5.netlify.app/api/${type}`, inibody)
     .then( data => setCharacters(data.data.Payload))
     .catch(function(error){
       console.log(error)
