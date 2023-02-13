@@ -1,25 +1,32 @@
 import React from "react";
+
 import {
     Chart, Series, CommonSeriesSettings, Label, Format, Legend,
   } from 'devextreme-react/chart';
 
 import { SingleCard } from "../../layouts";
 
+const data = (dat) =>{
+    console.log(dat)
+}
 
 const Characters = ({characters = []}) => {
     return(
         <div className="row col-xs-12">
                 {characters.map((item, index) => (
                     <div key={index} >
+                    
+                        
+                    
                             {item.workunits.map((data, key) =>(
-                            <SingleCard key ={key} 
-                             title={data.wkuname}
-                             description={data.sitname}
-                             color={data.sitcolor}
-                             data={data}
-                             >
+                                <SingleCard key ={key} 
+                                title={data.wkuname}
+                                description={data.sitname}
+                                color={data.sitcolor}
+                                data={data}
+                                >
+
                             <Chart id="chart"
-                                dataSource={data.serie}
                             >
                                 <Series
                                 // argumentField={data.tprod}
