@@ -3,7 +3,7 @@ import {
     Chart, Series, CommonSeriesSettings, Label, Format, Legend, Export,
   } from 'devextreme-react/chart';
 
-import { SingleCard } from "../../layouts";
+import { SingleCard } from "./layouts";
 
 
 const Characters = ({characters = []}) => {
