@@ -61,6 +61,9 @@ export default function Task() {
     // console.log(`${url} : ${body}`)
     axios.post(initiaurl, inibody)
     .then( data => setCharacters(data.data.Payload))
+    .catch(function(error){
+      console.log(error)
+    })
 
     // data.then(f => console.log(f.Payload))
 
