@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import 'devextreme/data/odata/store';
 import Characters from "../../components/my-components/Characters";
-import axios from "axios";
 
 async function postData(url = '', data = {}) {
   // Opciones por defecto estan marcadas con un *
   const response = await fetch(url, {
     method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    // mode: 'cors', // no-cors, *cors, same-origin
+    mode: 'cors', // no-cors, *cors, same-origin
     // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     // credentials: 'same-origin', // include, *same-origin, omit
     headers: {
@@ -58,7 +57,10 @@ export default function Task() {
   const fetchChraracter = (url, body) => {
     postData(url, body)
       .then(data => {setCharacters(data.Payload); // JSON data parsed by `data.json()` call
-  });
+      })
+      .catch(rejected => {
+        console.log(rejected);
+    });
 
   }
    useEffect(() => {

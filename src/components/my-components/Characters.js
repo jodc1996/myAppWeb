@@ -6,10 +6,6 @@ import {
 
 import { SingleCard } from "../../layouts";
 
-const data = (dat) =>{
-    console.log(dat)
-}
-
 const Characters = ({characters = []}) => {
     return(
         <div className="row col-xs-12">
